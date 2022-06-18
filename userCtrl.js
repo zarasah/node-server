@@ -12,6 +12,8 @@ class UserCtrl {
             id: ++id,
             ...req.body,
         });
+
+        res.send();
     }
 
     static deleteUsersController(req, res) {
@@ -20,6 +22,8 @@ class UserCtrl {
         users = users.filter((user) => {
             return user.id !== +index.id
         });
+
+        res.send();
     }
 
     static putUsersController(req, res) {
@@ -29,7 +33,10 @@ class UserCtrl {
             if (elem.id === +index) {
                 elem.name = req.query.name;
             }
+            res.send();
         });
+
+        
     }
 }
 
