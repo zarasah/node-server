@@ -14,6 +14,7 @@ if (process.env.PORT) {
 }
 
 app.use(json);
+app.use(express.static('./front'));
 app.use(userRt);
 
 app.listen(PORT, () => {

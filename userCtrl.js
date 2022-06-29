@@ -16,7 +16,7 @@ class UserCtrl {
         return res
         .status(201)
         .send({
-            data: saveData
+            data: saveData,
         });
     }
 
