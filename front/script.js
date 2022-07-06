@@ -1,26 +1,11 @@
 const showBtn = document.getElementById('showusers');
-
-showBtn.addEventListener('click', async () => {
-    const response = await fetch('http://localhost:3000/users', {
-        method: 'GET',
-    })
-
-    const body = await response.json();
-
-    console.log(body)
-})
-
-// (async () => {
-//     const response = await fetch('http://localhost:3000/users', {
-//         method: 'GET',
-//     })
-
-//     const body = await response.json();
-
-//     console.log(body);
-// })();
-
 const submitBtn = document.getElementById('savebtn');
+const deleteBtn = document.getElementById('delete');
+const updateBtn = document.getElementById('update');
+
+showBtn.addEventListener('click', () => window.location = './users.html');
+deleteBtn.addEventListener('click', () => window.location = './delete.html');
+updateBtn.addEventListener('click', () => window.location = './update.html');
 
 submitBtn.addEventListener('click', async() => {
     //const myForm = document.getElementById('myForm');
@@ -41,14 +26,18 @@ submitBtn.addEventListener('click', async() => {
         gender: gender,
     }
 
-    console.log(requestBody);
+    //console.log(requestBody);
 
-    const response = await fetch('http://localhost:3000/users', {
+    try {
+        const response = await fetch('http://localhost:3000/users', {
             method: 'POST',
             body: JSON.stringify(requestBody),
             headers: {
                 "Content-Type": "application/json"
-            } 
+            }
         })
+    } catch(error) {
+        console.log('Invalid data');
+    }
 });
 
